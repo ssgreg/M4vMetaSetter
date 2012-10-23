@@ -58,9 +58,9 @@ function BatchJob()
 
   while read file
   do
-  	if [ "$file" != "." ]; then
+    if [ "$file" != "." ]; then
       echo "Converting: $file"
-  	  Convert "$file" "$metadata" || exit $?
+      Convert "$file" "$metadata" || exit $?
     fi
   done
 }
@@ -79,9 +79,9 @@ function Main()
     echo "metasetter \"House M.D.\" 1 \"\\Users\\greg\\Pictures\\covers\\housemd 1.png\""
     exit
   fi
-  find . -name "$maskVideoToConvert" -maxdepth 1 | BatchJob $@
+  find . -name "$maskVideoToConvert" -maxdepth 1 | BatchJob "$@"
 }
 
 
 # entry point
-Main $@
+Main "$@"
